@@ -40,10 +40,10 @@ class GrabberHandler(RequestHandler):
         """
         self.__write_request_contents(*args, **kwargs)
         self.__render_redirect_page()
-        self._received_count += 1
+        GrabberHandler._received_count += 1
         logger.debug(
             "Total requests processed count: %s."
-            % (self.received_count,)
+            % (GrabberHandler._received_count,)
         )
     get = head = post = delete = patch = put = options = __handle_request
 
@@ -130,14 +130,6 @@ class GrabberHandler(RequestHandler):
             return "%s?%s" % (config.REDIRECT_URL, query)
         else:
             return config.REDIRECT_URL
-
-    @property
-    def received_count(self):
-        """
-        Get the number of requests that have been received and processed by this handler.
-        :return: The number of requests that have been received and processed by this handler.
-        """
-        return self._received_count
 
     @property
     def redirect_method(self):
