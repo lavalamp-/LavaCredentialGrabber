@@ -15,14 +15,7 @@ class GrabberHandler(RequestHandler):
     This request handler handles the retrieval and storage of credentials submitted to it.
     """
 
-    _received_count = None
-
-    def __init__(self, *args, **kwargs):
-        """
-        Initialize this handler to maintain information about how many requests it has received.
-        """
-        self._received_count = 0
-        super(GrabberHandler, self).__init__(*args, **kwargs)
+    _received_count = 0
 
     def __get_query_string_dict(self):
         """
