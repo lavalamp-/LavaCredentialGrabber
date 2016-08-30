@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ handler.title }}</title>
+
+    <script type="text/javascript">
+
+        function submitForm() {
+            var form = document.getElementsByTagName('form')[0];
+            form.submit();
+        }
+
+    </script>
+
+</head>
+
+<body onload="submitForm()">
+
+    <div style="display: none;">
+        <form action="{{ handler.get_redirect_url() }}" method="{{ handler.redirect_method }}">
+            {% for k, v in handler.get_redirect_inputs().iteritems() %}
+                <input type="text" name="{{ k }}" value="{{ v[0] }}">
+            {% end %}
+        </form>
+    </div>
+
+</body>
+
+</html>
